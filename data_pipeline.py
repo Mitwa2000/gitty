@@ -2,38 +2,33 @@ from functions import *
 import time
 import datetime
 
-print("Starting the data pipeline",datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+print("Starting data pipeline at ", datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+print("----------------------------------------------")
 
-print("---------------------------------------------------------------------")
-
-
-# STep 1:exract video ID's
-
-t0=time.time() # before capturing time
+# Step 1: extract video IDs
+t0 = time.time()
 getVideoIDs()
-t1=time.time() # after capturing time
+t1 = time.time()
 print("Step 1: Done")
-print("-----> Video IDs download in",str(t1-t0),"seconds","\n") # time tken by the function
+print("---> Video IDs downloaded in", str(t1-t0), "seconds", "\n")
 
-
-# step 2: Extract the transcripts for he videos
-t0=time.time() 
+# Step 2: extract transcripts for videos
+t0 = time.time()
 getVideoTranscripts()
-t1=time.time()
-print("Step 2: Done" )
-print("----> Transcripts downlaod in",str(t1-t0),"seconds")
+t1 = time.time()
+print("Step 2: Done")
+print("---> Transcripts downloaded in", str(t1-t0), "seconds", "\n")
 
-
-# step 3: transform data function
-t0=time.time()
+# Step 3: Transform data
+t0 = time.time()
 transformData()
-t1=time.time()
+t1 = time.time()
 print("Step 3: Done")
-print("----> Data Transformed in",str(t1-t0),"seconds")
+print("---> Data transformed in", str(t1-t0), "seconds", "\n")
 
-# step 4: generate text embeddings
-t0=time.time()
-createtextembeddings()
-t1=time.time()
+# Step 4: Generate text emebeddings
+t0 = time.time()
+createTextEmbeddings()
+t1 = time.time()
 print("Step 4: Done")
-print("----> EMbeddings generated in",str(t1-t0),"seconds")
+print("---> Embeddings generated in", str(t1-t0), "seconds", "\n")
